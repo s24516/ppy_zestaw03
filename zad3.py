@@ -4,48 +4,48 @@ from getpass import getpass
 wybor = ["Kamień", "Papier", "Nożyce"]
 wyniki = []
 ilosc = int(input("Podaj ilosc rund:\n"))
-tryb = int(input("Podaj tryb gry: (1- gracz vs komputer, 2- gracz vs gracz)\n"))
+tryb_gry = int(input("Podaj tryb gry: (1- gracz vs komputer, 2- gracz vs gracz)\n"))
 imiona = []
 w1 = 0
 w2 = 0
-for i in range(0, tryb):
+for i in range(0, tryb_gry):
     imiona.append(input("Podaj imie gracza " + str(i + 1) + ":\n"))
-if (tryb == 1):
+if (tryb_gry == 1):
     imiona.append("Komputer")
 for i in range(0, ilosc):
-    picked = int(getpass(prompt=("Gracz " + imiona[0] + " wybiera: (1- kamień, 2- papier, 3- nożyce\n")))
-    if (tryb == 2):
-        picked2 = int(getpass(prompt=("Gracz " + imiona[1] + " wybiera: (1- kamień, 2- papier, 3- nożyce\n")))
+    wybor1 = int(getpass(prompt=("Gracz " + imiona[0] + " wybiera: (1- kamień, 2- papier, 3- nożyce\n")))
+    if (tryb_gry == 2):
+        wybor2 = int(getpass(prompt=("Gracz " + imiona[1] + " wybiera: (1- kamień, 2- papier, 3- nożyce\n")))
     else:
-        picked2 = random.randrange(1, 4)
+        wybor2 = random.randrange(1, 4)
         print("Komputer wybiera ")
-    if picked == picked2:
+    if wybor1 == wybor2:
         tmp = "Remis!"
     else:
-        if picked == 1:
-            if picked2 == 3:
+        if wybor1 == 1:
+            if wybor2 == 3:
                 tmp = ("Wygral " + imiona[0])
                 w1 += 1
             else:
                 tmp = ("Wygral " + imiona[1])
                 w2 += 1
         else:
-            if picked == 2:
-                if picked2 == 1:
+            if wybor1 == 2:
+                if wybor2 == 1:
                     tmp = ("Wygral " + imiona[0])
                     w1 += 1
                 else:
                     tmp = ("Wygral " + imiona[1])
                     w2 += 1
             else:
-                if picked2 == 2:
+                if wybor2 == 2:
                     tmp = ("Wygral " + imiona[0])
                     w1 += 1
                 else:
                     tmp = ("Wygral " + imiona[1])
                     w2 += 1
 
-    wyniki.append(wybor[picked-1] + " vs " + wybor[picked2-1]+" "+tmp)
+    wyniki.append(wybor[wybor1 - 1] + " vs " + wybor[wybor2 - 1] + " " + tmp)
     print(tmp)
     print(str(w1) + " vs " + str(w2))
 print("====Historia====")
