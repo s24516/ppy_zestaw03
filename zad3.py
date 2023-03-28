@@ -24,7 +24,7 @@ for i in range(0, ilosc):
     else:
         if wybor1 == 1:
             if wybor2 == 3:
-                tmp = ("Wygral " + imiona[0])
+                tmp = ("wygral " + imiona[0])
                 w1 += 1
             else:
                 tmp = ("Wygral " + imiona[1])
